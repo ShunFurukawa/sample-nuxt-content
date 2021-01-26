@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  nuxt:
+    build:
+      context: .
+    container_name: sample-nuxt-content-app
+    command: yarn dev
+    ports:
+      - 3000:3000
+    environment:
+      - HOST=0.0.0.0
+    volumes:
+      - type: bind
+        source: ./
+        target: /var/www/html
+      - type: volume
+        source: node-modules-data
+        target: /var/www/html/node_modules
+    stdin_open: true
+    tty: true
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    container_name: sample-nuxt-content-nginx
+    ports:
+      - 80:80
+    depends_on:
+      - nuxt
+
+volumes:
+  node-modules-data:
