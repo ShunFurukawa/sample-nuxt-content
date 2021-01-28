@@ -5,5 +5,8 @@ export default {
   ],
   content: {
     // Options
+  },
+  router: {
+    base: "/test/"
   }
 }

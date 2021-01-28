@@ -1,16 +1,20 @@
 <template>
   <div>
     <h1>Hello World!</h1>
-    <nuxt-content :document="home" />
+    <div v-for="article in articles" :key="article.slug">
+      <nuxt-link :to="'../articles/'+ article.slug">{{article.title}} {{article.date}}</nuxt-link>
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     async asyncData ({ $content }) {
-      const home = await $content('home' || 'index').fetch()
+      const query = await $content('articles')
+      const articles = await query.fetch()
+
       return {
-        home
+        articles
       }
     }
   };
