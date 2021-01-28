@@ -1,3 +1,9 @@
 export default {
-  target: 'static'
+  target: 'static',
+  modules: [
+    '@nuxt/content'
+  ],
+  content: {
+    // Options
+  }
 }

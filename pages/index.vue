@@ -1,8 +1,17 @@
 <template>
   <div>
     <h1>Hello World!</h1>
-    <h2>Hello World!</h2>
-    <h3>Hoge</h3>
-    <h4>Foo</h4>
+    <nuxt-content :document="home" />
   </div>
 </template>
+
+<script>
+  export default {
+    async asyncData ({ $content }) {
+      const home = await $content('home' || 'index').fetch()
+      return {
+        home
+      }
+    }
+  };
+</script>
