@@ -6,7 +6,7 @@
     <hr>
     <h2>Article Index</h2>
     <div v-for="article in articles" :key="article.slug">
-      <nuxt-link :to="'/articles/'+ article.slug">{{article.title}} {{article.date}}</nuxt-link>
+      <nuxt-link :to="article.dir">{{article.title}} {{article.date}}</nuxt-link>
     </div>
   </div>
 </template>
