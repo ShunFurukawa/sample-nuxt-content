@@ -5,6 +5,7 @@ tag:
   - foo
   - vuejs
   - vue
+createdAt: 2021-02-01 14:00
 ---
 
 ![logo-image](https://jp.vuejs.org/images/logo.png)
