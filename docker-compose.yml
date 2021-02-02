@@ -29,6 +29,10 @@ services:
       - 80:80
     depends_on:
       - nuxt
+    volumes:
+      - type: bind
+        source: ./dist
+        target: /var/www/html
 
 volumes:
   node-modules-data:
