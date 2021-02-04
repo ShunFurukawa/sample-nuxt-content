@@ -8,7 +8,9 @@
 <script>
   export default {
     async asyncData({ $content, params }) {
-      const article = await $content('articles', params.date, 'index').fetch()
+      const [article] = await $content({ deep: true })
+        .where({ dir: `/${params.slug}` })
+        .fetch()
 
       return { article }
     },
