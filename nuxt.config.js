@@ -6,6 +6,7 @@ export default {
   content: {
     // Options
   },
+  components: true,
   router: {
     base: '/test/'
   },
